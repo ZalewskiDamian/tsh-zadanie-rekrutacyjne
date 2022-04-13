@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
     }
     body {
         font-size: 16px;
+        background-color: #f2f2f2;
     }
     img {
         display: block;
