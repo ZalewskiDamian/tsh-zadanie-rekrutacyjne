@@ -16,6 +16,12 @@ const GlobalStyle = createGlobalStyle`
     body {
         font-size: 16px;
     }
+    img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
 `;
 
 export default GlobalStyle;
