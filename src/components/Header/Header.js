@@ -4,11 +4,15 @@ import Logo from '../../assets/images/logo.svg';
 import { SearchInput, Checkbox } from '../index';
 
 const Header = () => {
-  const [checked, setChecked] = useState(false);
+  const [checkedActive, setCheckedActive] = useState(false);
+  const [checkedPromo, setCheckedPromo] = useState(false);
 
-  const handleCheckboxChange = e => {
-    console.log(e.target.name)
-    setChecked(!checked);
+  const handleCheckboxActive = e => {
+    setCheckedActive(!checkedActive);
+  };
+
+  const handleCheckboxPromo = e => {
+    setCheckedPromo(!checkedPromo);
   };
 
   return (
@@ -19,15 +23,13 @@ const Header = () => {
           <StyledCheckboxWrapper>
             <Checkbox 
               labelText='Active'
-              name='Active'
-              checked={checked}
-              onChange={handleCheckboxChange}
+              checked={checkedActive}
+              onChange={handleCheckboxActive}
             />
             <Checkbox 
               labelText='Promo'
-              name='Promo'
-              checked={checked}
-              onChange={handleCheckboxChange}
+              checked={checkedPromo}
+              onChange={handleCheckboxPromo}
             />
           </StyledCheckboxWrapper>
         </StyledHeaderContainer>

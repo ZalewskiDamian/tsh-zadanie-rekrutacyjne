@@ -1,31 +1,72 @@
+import { v4 as uuidv4 } from 'uuid';
 import Button from "../Button/Button";
-import cardImg from '../../assets/images/card-image.png';
-import starIcon from '../../assets/images/star-icon-fill.svg';
-import { StyledCardContent, StyledCardDescription, StyledCardInner, StyledCardTitle, StyledCardWrapper, StyledImage, StyledImageWrapper, StyledPromotionWrapper, StyledRatingWrapper, StyledStarIcon } from "./ProductCard.styles"
+import starIconFill from '../../assets/images/star-icon-fill.svg';
+import starIconEmpty from '../../assets/images/star-icon-empty.svg';
+import { StyledCardContent, StyledCardDescription, StyledCardInner, StyledCardName, StyledCardWrapper, StyledImage, StyledImageWrapper, StyledPromotionWrapper, StyledRatingWrapper, StyledStarIcon } from "./ProductCard.styles"
 
-const ProductCard = () => {
-  return (
-    <StyledCardWrapper>
-        <StyledImageWrapper>
-            <StyledImage src={cardImg} alt='card img' />
-            <StyledPromotionWrapper>Promo</StyledPromotionWrapper>
-        </StyledImageWrapper>
-        <StyledCardContent>
-            <StyledCardInner>
-                <StyledCardTitle>White Watch</StyledCardTitle>
-                <StyledCardDescription>
-                    How To Protect Your Computer Very Useful Tips
-                </StyledCardDescription>
-            </StyledCardInner>
-            <StyledCardInner>
-                <StyledRatingWrapper>
-                    <StyledStarIcon src={starIcon} alt='star' />
-                </StyledRatingWrapper>
-                <Button>Show Details</Button>
-            </StyledCardInner>
-        </StyledCardContent>
-    </StyledCardWrapper>
-  )
+const ProductCard = ({id, name, description, rating, image, promo, active}) => {
+
+    const starArray = [
+        {
+            iconFill: starIconFill,
+            iconEmpty: starIconEmpty,
+        },
+        {
+            iconFill: starIconFill,
+            iconEmpty: starIconEmpty,
+        },
+        {
+            iconFill: starIconFill,
+            iconEmpty: starIconEmpty,
+        },
+        {
+            iconFill: starIconFill,
+            iconEmpty: starIconEmpty,
+        },
+        {
+            iconFill: starIconFill,
+            iconEmpty: starIconEmpty,
+        },
+    ];
+
+    return (
+        <StyledCardWrapper>
+            <StyledImageWrapper active={active}>
+                <StyledImage src={image} alt={name} />
+                {promo && 
+                    <StyledPromotionWrapper>Promo</StyledPromotionWrapper>
+                }
+            </StyledImageWrapper>
+            <StyledCardContent>
+                <StyledCardInner>
+                    <StyledCardName>{name}</StyledCardName>
+                    <StyledCardDescription>
+                        {description}
+                    </StyledCardDescription>
+                </StyledCardInner>
+                <StyledCardInner>
+                    <StyledRatingWrapper>
+                        {starArray.map((star, index) => {
+                            if (index <= rating) {
+                                return (
+                                    <StyledStarIcon key={uuidv4()} src={star.iconFill} />
+                                )
+                            } else {
+                                return (
+                                    <StyledStarIcon key={uuidv4()} src={star.iconEmpty} />
+                                )
+                            }
+                        })}
+                    </StyledRatingWrapper>
+                    {active ? (
+                        <Button>Show Details</Button>
+                    ) : (
+                        <Button disabled>Unavliable</Button>
+                    )}
+                </StyledCardInner>
+            </StyledCardContent>
+        </StyledCardWrapper>
+    )
 }
 
 export default ProductCard;

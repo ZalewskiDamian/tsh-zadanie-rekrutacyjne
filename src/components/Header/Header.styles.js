@@ -16,7 +16,6 @@ export const StyledHeaderContainer = styled.div`
 `;
 export const StyledLogo = styled.img`
     max-width: 10.3rem;
-    order: 1;
 `;
 export const StyledCheckboxWrapper = styled.div`
 
