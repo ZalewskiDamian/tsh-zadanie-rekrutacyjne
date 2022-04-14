@@ -10,11 +10,13 @@ export const StyledHeaderContainer = styled.div`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding: 4.8rem 2.4rem 3.2rem 2.4rem;
 `;
 export const StyledLogo = styled.img`
     max-width: 10.3rem;
+    order: 1;
 `;
 export const StyledCheckboxWrapper = styled.div`
 

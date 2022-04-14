@@ -7,8 +7,10 @@ const Header = () => {
   const [checked, setChecked] = useState(false);
 
   const handleCheckboxChange = e => {
-    
+    console.log(e.target.name)
+    setChecked(!checked);
   };
+
   return (
     <StyledHeader>
         <StyledHeaderContainer>
