@@ -1,7 +1,8 @@
 import {useState} from 'react';
-import { StyledHeader, StyledHeaderContainer, StyledLogo, StyledCheckboxWrapper } from "./Header.styles";
+import { StyledHeader, StyledHeaderContainer, StyledLogo, StyledCheckboxWrapper, StyledLoginButton } from "./Header.styles";
 import Logo from '../../assets/images/logo.svg';
 import { SearchInput, Checkbox } from '../index';
+import { AppRoute } from '../../routing/AppRoute.enum';
 
 const Header = () => {
   const [checkedActive, setCheckedActive] = useState(false);
@@ -32,6 +33,7 @@ const Header = () => {
               onChange={handleCheckboxPromo}
             />
           </StyledCheckboxWrapper>
+          <StyledLoginButton to={AppRoute.login}>Log in</StyledLoginButton>
         </StyledHeaderContainer>
     </StyledHeader>
   )

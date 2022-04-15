@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { StyledProductsGrid, StyledProductContainer } from './Products.styles';
 import { Header, ProductCard } from '../../components';
 
@@ -39,7 +38,6 @@ export const Products = () => {
     )
   });
   
-  console.log(products);
   return (
     <>
       <Header />
@@ -48,7 +46,6 @@ export const Products = () => {
           {productsList}
         </StyledProductsGrid>
       </StyledProductContainer>
-      <Link to={AppRoute.login}> Login </Link>
     </>
   );
 };

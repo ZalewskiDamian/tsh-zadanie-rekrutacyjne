@@ -61,7 +61,7 @@ const ProductCard = ({id, name, description, rating, image, promo, active}) => {
                     {active ? (
                         <Button>Show Details</Button>
                     ) : (
-                        <Button disabled>Unavliable</Button>
+                        <Button disabled>Unavailable</Button>
                     )}
                 </StyledCardInner>
             </StyledCardContent>
