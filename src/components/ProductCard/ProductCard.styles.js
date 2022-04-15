@@ -4,6 +4,7 @@ export const StyledCardWrapper = styled.div`
     border-radius: .8rem;
     background-color: white;
     height: 40rem;
+    overflow: hidden;
 `;
 export const StyledImageWrapper = styled.div`
     height: 17rem;

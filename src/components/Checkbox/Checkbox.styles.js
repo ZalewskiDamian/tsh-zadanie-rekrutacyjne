@@ -36,8 +36,11 @@ export const StyledCheckbox = styled.div`
   }
 `;
 export const StyledLabel = styled.label`
-    margin-left: .8rem;
     font-size: ${({theme}) => theme.fontSize.font_14};
     font-weight: ${({theme}) => theme.fontWeight.semiBold};
     cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 3.2rem;
+    }
 `;

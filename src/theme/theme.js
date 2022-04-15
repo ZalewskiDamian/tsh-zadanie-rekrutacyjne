@@ -20,7 +20,7 @@ export const theme = {
         font_12: '1.2rem',
         font_14: '1.4rem',
         font_16: '1.6rem',
-        font_16: '1.8rem',
+        font_18: '1.8rem',
         font_30: '3rem',
     }
 };

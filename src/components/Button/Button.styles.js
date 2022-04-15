@@ -10,12 +10,14 @@ const StyledButton = styled.button`
     line-height: 1.6rem;
     text-align: center;
     padding: 1.2rem;
-    border: 0;
+    border: 1px solid ${({theme, disabled}) => disabled ? theme.colors.gray : theme.colors.blue};
     cursor: pointer;
     transition: all .35s ease-in-out;
 
     &:hover {
-        background-color: ${({theme}) => theme.colors.blueDark};
+        color: ${({theme, disabled}) => disabled ? theme.colors.gray : theme.colors.blue};
+        background-color: white;
+        border: 1px solid ${({theme, disabled}) => disabled ? theme.colors.gray : theme.colors.blue};
     }
 `;
 
