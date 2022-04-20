@@ -4,7 +4,7 @@ import starIconFill from '../../assets/images/star-icon-fill.svg';
 import starIconEmpty from '../../assets/images/star-icon-empty.svg';
 import { StyledCardContent, StyledCardDescription, StyledCardInner, StyledCardName, StyledCardWrapper, StyledImage, StyledImageWrapper, StyledPromotionWrapper, StyledRatingWrapper, StyledStarIcon } from "./ProductCard.styles"
 
-const ProductCard = ({id, name, description, rating, image, promo, active}) => {
+const ProductCard = ({id, name, description, rating, image, promo, active, handleModalOpen}) => {
 
     const starArray = [
         {
@@ -28,6 +28,8 @@ const ProductCard = ({id, name, description, rating, image, promo, active}) => {
             iconEmpty: starIconEmpty,
         },
     ];
+
+    
 
     return (
         <StyledCardWrapper>
@@ -59,7 +61,7 @@ const ProductCard = ({id, name, description, rating, image, promo, active}) => {
                         })}
                     </StyledRatingWrapper>
                     {active ? (
-                        <Button>Show Details</Button>
+                        <Button type='button' onClick={() => handleModalOpen(id)}>Show Details</Button>
                     ) : (
                         <Button disabled>Unavailable</Button>
                     )}

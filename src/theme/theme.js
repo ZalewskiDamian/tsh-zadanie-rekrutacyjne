@@ -21,6 +21,7 @@ export const theme = {
         font_14: '1.4rem',
         font_16: '1.6rem',
         font_18: '1.8rem',
+        font_24: '2.4rem',
         font_30: '3rem',
     }
 };

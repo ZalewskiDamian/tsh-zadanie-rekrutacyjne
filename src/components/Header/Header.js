@@ -1,20 +1,26 @@
 import {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActive, setPromo, searchProduct } from '../../redux/filtersReducer';
 import { StyledHeader, StyledHeaderContainer, StyledLogo, StyledCheckboxWrapper, StyledLoginButton } from "./Header.styles";
 import Logo from '../../assets/images/logo.svg';
 import { SearchInput, Checkbox } from '../index';
 import { AppRoute } from '../../routing/AppRoute.enum';
 
 const Header = () => {
-  const [checkedActive, setCheckedActive] = useState(false);
-  const [checkedPromo, setCheckedPromo] = useState(false);
+  // const [checkedActive, setCheckedActive] = useState(false);
+  // const [checkedPromo, setCheckedPromo] = useState(false);
+  const { active, promo, search } = useSelector((state) => state.filters);
+  const dispatch = useDispatch();
 
-  const handleCheckboxActive = e => {
-    setCheckedActive(!checkedActive);
+  const handleCheckboxActive = () => {
+    dispatch(setActive(!active));
   };
 
-  const handleCheckboxPromo = e => {
-    setCheckedPromo(!checkedPromo);
+  const handleCheckboxPromo = () => {
+    dispatch(setPromo(!promo));
   };
+
+  
 
   return (
     <StyledHeader>
@@ -24,12 +30,12 @@ const Header = () => {
           <StyledCheckboxWrapper>
             <Checkbox 
               labelText='Active'
-              checked={checkedActive}
+              checked={active}
               onChange={handleCheckboxActive}
             />
             <Checkbox 
               labelText='Promo'
-              checked={checkedPromo}
+              checked={promo}
               onChange={handleCheckboxPromo}
             />
           </StyledCheckboxWrapper>
