@@ -8,11 +8,13 @@ export const StyledProductDetailsMask = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0, .8);
+    display: flex;
+    background-color: rgba(26,27,29, .9);
     opacity: ${({modalActive}) => modalActive ? '1' : '0'};
-    display: ${({modalActive}) => modalActive ? 'flex' : 'none'};
+    visibility: ${({modalActive}) => modalActive ? 'visible' : 'hidden'};
     justify-content: center;
     align-items: center;
+    transition: opacity .3s ease-in;
 `;
 export const StyledProductDetailsWrapper = styled.div`
     width: 100%;
@@ -21,12 +23,21 @@ export const StyledProductDetailsWrapper = styled.div`
     box-shadow: 0px 8px 32px rgba(17, 18, 20, 0.15);
     position: relative;
     background-color: white;
+    margin: 0 2.4rem;
+    overflow: hidden;
+
+    ${breakpoints.md} {
+        margin: 0;
+    }
 `;
 export const StyledProductDetailsImageWrapper = styled.div`
     height: 35.4rem;
     width: 100%;
 `;
-export const StyledProductDetailsImage = styled.img``;
+export const StyledProductDetailsImage = styled.img`
+    height: 100%;
+    object-fit: cover;
+`;
 export const StyledProductDetailsContent = styled.div`
     padding: 2.4rem;
     text-align: left;
@@ -54,6 +65,10 @@ export const StyledProductDetailsCloseButton = styled.span`
     right: 1.6rem;
     width: 3.2rem;
     height: 3.2rem;
+    border-radius: 50%;
     cursor: pointer;
     background-image: url(${closeIcon});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #F8F8FA;
 `;

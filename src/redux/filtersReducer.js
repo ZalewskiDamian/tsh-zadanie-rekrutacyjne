@@ -4,24 +4,28 @@ const initialState = {
     active: false,
     promo: false,
     searchTerm: '',
+    page: 1,
 }
 
 export const filtersSlice = createSlice({
     name: 'filters',
     initialState,
     reducers: {
-        setActive: (state, action) => {
-            state.active = action.payload;
+        setActive: (state) => {
+            state.active = !state.active;
         },
-        setPromo: (state, action) => {
-            state.promo = action.payload;
+        setPromo: (state) => {
+            state.promo = !state.promo;
         },
         searchProduct: (state, action) => {
             state.searchTerm = action.payload;
+        },
+        setCurrentPage: (state, action) => {
+            state.page = action.payload;
         }
     }
 });
 
-export const { setActive, setPromo, searchProduct } = filtersSlice.actions
+export const { setActive, setPromo, searchProduct, setCurrentPage } = filtersSlice.actions
 
 export default filtersSlice.reducer

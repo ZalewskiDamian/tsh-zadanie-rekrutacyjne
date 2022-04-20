@@ -7,26 +7,33 @@ import { SearchInput, Checkbox } from '../index';
 import { AppRoute } from '../../routing/AppRoute.enum';
 
 const Header = () => {
-  // const [checkedActive, setCheckedActive] = useState(false);
-  // const [checkedPromo, setCheckedPromo] = useState(false);
-  const { active, promo, search } = useSelector((state) => state.filters);
+  const [focusInput, setFocusInput] = useState(false);
+  const { active, promo, searchTerm } = useSelector((state) => state.filters);
   const dispatch = useDispatch();
 
   const handleCheckboxActive = () => {
-    dispatch(setActive(!active));
+    dispatch(setActive());
   };
 
   const handleCheckboxPromo = () => {
-    dispatch(setPromo(!promo));
+    dispatch(setPromo());
   };
-
-  
+  const handleSearchProduct = (e) => {
+    setFocusInput(true);
+    dispatch(searchProduct(e.target.value));
+  }
 
   return (
     <StyledHeader>
         <StyledHeaderContainer>
           <StyledLogo src={Logo} alt='logo' />
-          <SearchInput />
+          <SearchInput
+            type='search'
+            placeholder='Szukaj...' 
+            focusInput={focusInput}
+            onChange={handleSearchProduct}
+            value={searchTerm}
+          />
           <StyledCheckboxWrapper>
             <Checkbox 
               labelText='Active'

@@ -5,5 +5,6 @@ import Checkbox from './Checkbox/Checkbox';
 import ProductCard from "./ProductCard/ProductCard";
 import EmptyStore from "./EmptyStore/EmptyStore";
 import Pagination from "./Pagination/Pagination";
+import ProductDetails from "./productDetails/ProductDetails";
 
-export { Button, Header, SearchInput, Checkbox, ProductCard, EmptyStore, Pagination };
+export { Button, Header, SearchInput, Checkbox, ProductCard, ProductDetails, EmptyStore, Pagination };
