@@ -3,8 +3,8 @@ import filtersReducer from "./filtersReducer";
 import productsReducer from "./productsReducer";
 
 export const store = configureStore({
-    reducer: {
-        filters: filtersReducer,
-        products: productsReducer,
-    }
-})
+  reducer: {
+    filters: filtersReducer,
+    products: productsReducer,
+  },
+});

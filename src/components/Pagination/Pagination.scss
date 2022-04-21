@@ -6,7 +6,11 @@
     margin: 5.6rem 0;
     font-family: 'Nunito', sans-serif;
 }
+.break {
+    padding: .8rem;
+}
 .page-item {
+    padding: .8rem;
     &:first-child {
         padding: .8rem 3.3rem .8rem 0;
     }
@@ -22,7 +26,6 @@
     line-height: 1.6rem;
     background-color: transparent;
     border: none;
-    padding: .8rem;
     cursor: pointer;
 
     // &:hover {
