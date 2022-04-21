@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../../redux/productsReducer";
@@ -8,25 +8,9 @@ import "./Pagination.scss";
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  // const { products } = useSelector((state) => state.products);
   const { active, promo, searchTerm, page } = useSelector(
     (state) => state.filters
   );
-  // const [ pageNumber, setPageNumber ] = useState(1);
-
-  // const fetchProducts = async (currentPage) => {
-  //   const res = await axios.get(`https://join-tsh-api-staging.herokuapp.com/products?limit=8&page=${currentPage}`);
-  //   const data = await res.data.items;
-  //   return data;
-  // };
-
-  // const handlePageClick = async (data) => {
-  //   let currentPage = data.selected + 1;
-  //   console.log(currentPage)
-  //   const productsFormServer = await fetchProducts(currentPage);
-
-  //   dispatch(setProducts(productsFormServer))
-  // }
 
   const fetchProducts = async (currentPage) => {
     const res = await axios.get(

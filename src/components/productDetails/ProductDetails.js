@@ -1,40 +1,36 @@
 import {
-  StyledProductDetailsMask,
-  StyledProductDetailsWrapper,
-  StyledProductDetailsImageWrapper,
-  StyledProductDetailsImage,
-  StyledProductDetailsContent,
-  StyledProductDetailsName,
-  StyledProductDetailsParagraph,
-  StyledProductDetailsCloseButton,
+  Mask,
+  Wrapper,
+  ImageWrapper,
+  Image,
+  Content,
+  Name,
+  Paragraph,
+  CloseButton,
 } from "./ProductDetails.styles";
 
 const ProductDetails = ({
   modalActive,
   setModalActive,
-  name,
-  description,
-  image,
+  modalProdut,
 }) => {
   const handleModalClose = () => {
     setModalActive(false);
   };
-
+  const { name, image, description } = modalProdut;
   return (
-    <StyledProductDetailsMask modalActive={modalActive}>
-      <StyledProductDetailsWrapper>
-        <StyledProductDetailsCloseButton onClick={() => handleModalClose()} />
-        <StyledProductDetailsImageWrapper>
-          <StyledProductDetailsImage src={image} alt={name} />
-        </StyledProductDetailsImageWrapper>
-        <StyledProductDetailsContent>
-          <StyledProductDetailsName>{name}</StyledProductDetailsName>
-          <StyledProductDetailsParagraph>
-            {description}
-          </StyledProductDetailsParagraph>
-        </StyledProductDetailsContent>
-      </StyledProductDetailsWrapper>
-    </StyledProductDetailsMask>
+    <Mask modalActive={modalActive}>
+      <Wrapper>
+        <CloseButton onClick={() => handleModalClose()} />
+        <ImageWrapper>
+          <Image src={image} alt={name} />
+        </ImageWrapper>
+        <Content>
+          <Name>{name}</Name>
+          <Paragraph>{description}</Paragraph>
+        </Content>
+      </Wrapper>
+    </Mask>
   );
 };
 

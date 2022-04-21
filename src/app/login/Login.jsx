@@ -1,22 +1,24 @@
 import { useState } from "react";
+import { Button } from "../../components/index";
+import { NavLink } from "react-router-dom";
+import { AppRoute } from "../../routing/AppRoute.enum";
 import loginImage from "../../assets/images/login-image.png";
 import logoIcon from "../../assets/images/logo.svg";
 import {
-  StyledLoginWrapper,
-  StyledLoginImageWrapper,
-  StyledLoginImage,
-  StyledLoginContent,
-  StyledLoginInner,
-  StyledLoginHeader,
-  StyledLogo,
-  StyledLoginHeading,
-  StyledForm,
-  StyledInputGroup,
-  StyledLabel,
-  StyledInput,
-  StyledForgotPassword,
+  Wrapper,
+  ImageWrapper,
+  Image,
+  Content,
+  Inner,
+  Header,
+  Logo,
+  Heading,
+  Form,
+  InputGroup,
+  Label,
+  Input,
+  ForgotPassword,
 } from "./Login.styles";
-import { Button } from "../../components/index";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -24,12 +26,12 @@ export const Login = () => {
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
-    console.log(username);
   };
+
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    console.log(password);
   };
+
   const UserLogin = async () => {
     let user = {
       username: username,
@@ -46,7 +48,6 @@ export const Login = () => {
         body: JSON.stringify(user),
       }
     );
-    // console.log(user);
     result = await result.json();
     const userObj = {
       isLogged: true,
@@ -64,40 +65,43 @@ export const Login = () => {
     e.preventDefault();
     UserLogin();
   };
+
   return (
-    <StyledLoginWrapper>
-      <StyledLoginImageWrapper>
-        <StyledLoginImage src={loginImage} alt="login" />
-      </StyledLoginImageWrapper>
-      <StyledLoginContent>
-        <StyledLoginHeader>
-          <StyledLogo src={logoIcon} alt="logo" />
-        </StyledLoginHeader>
-        <StyledLoginInner>
-          <StyledLoginHeading>Login</StyledLoginHeading>
-          <StyledForm onSubmit={handleSubmit}>
-            <StyledInputGroup>
-              <StyledLabel>Username</StyledLabel>
-              <StyledInput
+    <Wrapper>
+      <ImageWrapper>
+        <Image src={loginImage} alt="login" />
+      </ImageWrapper>
+      <Content>
+        <Header>
+          <NavLink to={AppRoute.home}>
+            <Logo src={logoIcon} alt="logo" />
+          </NavLink>
+        </Header>
+        <Inner>
+          <Heading>Login</Heading>
+          <Form onSubmit={handleSubmit}>
+            <InputGroup>
+              <Label>Username</Label>
+              <Input
                 name="username"
                 value={username}
                 onChange={handleUsername}
               />
-            </StyledInputGroup>
-            <StyledInputGroup>
-              <StyledLabel>Password</StyledLabel>
-              <StyledInput
+            </InputGroup>
+            <InputGroup>
+              <Label>Password</Label>
+              <Input
                 name="password"
                 type="password"
                 value={password}
                 onChange={handlePassword}
               />
-            </StyledInputGroup>
+            </InputGroup>
             <Button type="submit">Log in</Button>
-            <StyledForgotPassword>Forgot password?</StyledForgotPassword>
-          </StyledForm>
-        </StyledLoginInner>
-      </StyledLoginContent>
-    </StyledLoginWrapper>
+            <ForgotPassword>Forgot password?</ForgotPassword>
+          </Form>
+        </Inner>
+      </Content>
+    </Wrapper>
   );
 };

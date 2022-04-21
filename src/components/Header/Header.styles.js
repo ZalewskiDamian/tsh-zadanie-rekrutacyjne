@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const StyledHeader = styled.header`
+export const Wrapper = styled.header`
   width: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
-export const StyledHeaderContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   max-width: 122.4rem;
   margin: 0 auto;
@@ -15,18 +15,19 @@ export const StyledHeaderContainer = styled.div`
   align-items: center;
   padding: 4.8rem 2.4rem 3.2rem 2.4rem;
 `;
-export const StyledLogo = styled.img`
+export const Logo = styled.img`
   max-width: 10.3rem;
   order: 1;
 `;
-export const StyledCheckboxWrapper = styled.div`
+export const CheckboxWrapper = styled.div`
   order: 2;
 
-  @media screen and (min-width: 630px) {
+  @media (min-width: 630px) {
     order: 1;
   }
 `;
-export const StyledLoginButton = styled(Link)`
+export const LoginButton = styled(Link)(
+  ({ theme }) => `
   order: 1;
   display: flex;
   justify-content: center;
@@ -34,26 +35,34 @@ export const StyledLoginButton = styled(Link)`
   width: 8.8rem;
   height: 3.8rem;
   border-radius: 0.4rem;
-  color: ${({ theme }) => theme.colors.blue};
-  font-size: ${({ theme }) => theme.fontSize.font_14};
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  border: 1px solid ${({ theme }) => theme.colors.blue};
+  color: ${theme.colors.blue};
+  font-size: ${theme.fontSize.font_14};
+  font-weight: ${theme.fontWeight.semiBold};
+  border: 1px solid ${theme.colors.blue};
   cursor: pointer;
   text-decoration: none;
-`;
-export const StyledAvatarWrapper = styled.div`
+  transition: all .35s ease-in-out;
+
+  &:hover {
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.blue};
+  }
+  `
+);
+export const AvatarWrapper = styled.div`
   position: relative;
   order: 1;
 `;
-export const StyledAvatar = styled.img`
+export const Avatar = styled.img`
   width: 4.8rem;
   height: 4.8rem;
   border-radius: 50%;
   cursor: pointer;
 `;
-export const StyledDropdown = styled.div`
+export const Dropdown = styled.div(
+  ({ theme, dropdownActive }) => `
   box-shadow: 0 8px 32px 0 rgba(17, 18, 20, 0.16);
-  background-color: white;
+  background-color: ${theme.colors.white};
   border-radius: 0.4rem;
   width: 18.4rem;
   height: 5.6rem;
@@ -61,13 +70,16 @@ export const StyledDropdown = styled.div`
   position: absolute;
   right: 0;
   bottom: -7rem;
-  display: ${({ dropdownActive }) => (dropdownActive ? "block" : "none")};
-`;
-export const StyledDropdownButton = styled.button`
-  color: ${({ theme }) => theme.colors.black};
-  font-size: ${({ theme }) => theme.fontSize.font_14};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  display: ${dropdownActive ? "block" : "none"};
+  `
+);
+export const DropdownButton = styled.button(
+  ({ theme }) => `
+  color: ${theme.colors.black};
+  font-size: ${theme.fontSize.font_14};
+  font-weight: ${theme.fontWeight.bold};
   background: none;
   border: 0;
   cursor: pointer;
-`;
+  `
+);

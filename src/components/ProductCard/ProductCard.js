@@ -3,28 +3,21 @@ import Button from "../Button/Button";
 import starIconFill from "../../assets/images/star-icon-fill.svg";
 import starIconEmpty from "../../assets/images/star-icon-empty.svg";
 import {
-  StyledCardContent,
-  StyledCardDescription,
-  StyledCardInner,
-  StyledCardName,
-  StyledCardWrapper,
-  StyledImage,
-  StyledImageWrapper,
-  StyledPromotionWrapper,
-  StyledRatingWrapper,
-  StyledStarIcon,
+  Content,
+  Description,
+  Inner,
+  Name,
+  Wrapper,
+  Image,
+  ImageWrapper,
+  PromotionWrapper,
+  RatingWrapper,
+  StarIcon,
 } from "./ProductCard.styles";
 
-const ProductCard = ({
-  id,
-  name,
-  description,
-  rating,
-  image,
-  promo,
-  active,
-  handleModalOpen,
-}) => {
+const ProductCard = ({ handleModalOpen, productData }) => {
+  const { id, name, description, rating, image, promo, active } =
+    productData;
   const starArray = [
     {
       iconFill: starIconFill,
@@ -49,26 +42,30 @@ const ProductCard = ({
   ];
 
   return (
-    <StyledCardWrapper>
-      <StyledImageWrapper active={active}>
-        <StyledImage src={image} alt={name} />
-        {promo && <StyledPromotionWrapper>Promo</StyledPromotionWrapper>}
-      </StyledImageWrapper>
-      <StyledCardContent>
-        <StyledCardInner>
-          <StyledCardName>{name}</StyledCardName>
-          <StyledCardDescription>{description}</StyledCardDescription>
-        </StyledCardInner>
-        <StyledCardInner>
-          <StyledRatingWrapper>
+    <Wrapper>
+      <ImageWrapper active={active}>
+        <Image src={image} alt={name} />
+        {promo && <PromotionWrapper>Promo</PromotionWrapper>}
+      </ImageWrapper>
+      <Content>
+        <Inner>
+          <Name>{name}</Name>
+          <Description>{description}</Description>
+        </Inner>
+        <Inner>
+          <RatingWrapper>
             {starArray.map((star, index) => {
               if (index <= rating) {
-                return <StyledStarIcon key={uuidv4()} src={star.iconFill} />;
+                return (
+                  <StarIcon key={uuidv4()} src={star.iconFill} />
+                );
               } else {
-                return <StyledStarIcon key={uuidv4()} src={star.iconEmpty} />;
+                return (
+                  <StarIcon key={uuidv4()} src={star.iconEmpty} />
+                );
               }
             })}
-          </StyledRatingWrapper>
+          </RatingWrapper>
           {active ? (
             <Button type="button" onClick={() => handleModalOpen(id)}>
               Show Details
@@ -82,9 +79,9 @@ const ProductCard = ({
               Unavailable
             </Button>
           )}
-        </StyledCardInner>
-      </StyledCardContent>
-    </StyledCardWrapper>
+        </Inner>
+      </Content>
+    </Wrapper>
   );
 };
 

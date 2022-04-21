@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { breakpoints } from "../../breakpoints/breakpoints";
 
-export const StyledLoginWrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   width: 100%;
   height: 100vh;
@@ -11,7 +11,7 @@ export const StyledLoginWrapper = styled.div`
     grid-template-columns: 40% 60%;
   }
 `;
-export const StyledLoginHeader = styled.div`
+export const Header = styled.div`
   width: 100%;
   margin-bottom: 10rem;
 
@@ -19,28 +19,28 @@ export const StyledLoginHeader = styled.div`
     margin-bottom: 22%;
   }
 `;
-export const StyledLogo = styled.img`
+export const Logo = styled.img`
   max-width: 10.3rem;
 `;
-export const StyledLoginImageWrapper = styled.div`
+export const ImageWrapper = styled.div`
   display: none;
 
   ${breakpoints.md} {
     display: block;
   }
 `;
-export const StyledLoginImage = styled.img`
+export const Image = styled.img`
   width: 100%;
   height: 100vh;
 `;
-export const StyledLoginContent = styled.div`
+export const Content = styled.div`
   padding: 4rem 2.4rem;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
   position: relative;
 
   ${breakpoints.md} {
@@ -48,23 +48,25 @@ export const StyledLoginContent = styled.div`
     padding: 5.2rem 15%;
   }
 `;
-export const StyledLoginInner = styled.div`
+export const Inner = styled.div`
   width: 100%;
   max-width: 49.6rem;
 `;
-export const StyledLoginHeading = styled.h2`
-  font-size: ${({ theme }) => theme.fontSize.font_30};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.black};
-  margin-bottom: 2.9rem;
-`;
-export const StyledForm = styled.form`
+export const Heading = styled.h2(
+  ({ theme }) => `
+    font-size: ${theme.fontSize.font_30};
+    font-weight: ${theme.fontWeight.bold};
+    color: ${theme.colors.black};
+    margin-bottom: 2.9rem;
+  `
+);
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 `;
-export const StyledInputGroup = styled.div`
+export const InputGroup = styled.div`
   margin-bottom: 2.2rem;
   width: 100%;
 
@@ -72,28 +74,36 @@ export const StyledInputGroup = styled.div`
     margin-bottom: 5.6rem;
   }
 `;
-export const StyledLabel = styled.label`
-  font-size: ${({ theme }) => theme.fontSize.font_14};
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
-  color: ${({ theme }) => theme.colors.black};
+export const Label = styled.label(
+  ({ theme }) => `
+  font-size: ${theme.fontSize.font_14};
+  font-weight: ${theme.fontWeight.semiBold};
+  color: ${theme.colors.black};
+  display: block;
   margin-bottom: 0.8rem;
-`;
-export const StyledInput = styled.input`
+  `
+);
+export const Input = styled.input(
+  ({ theme }) => `
   width: 100%;
   border-radius: 0.8rem;
-  border: 1px solid ${({ theme }) => theme.colors.grayLight};
+  border: 1px solid ${theme.colors.grayLight};
   padding: 1.6rem;
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${theme.colors.gray};
 
   &::placeholder {
-    font-size: ${({ theme }) => theme.fontSize.font_14};
-    color: ${({ theme }) => theme.colors.gray};
+    font-size: ${theme.fontSize.font_14};
+    color: ${theme.colors.gray};
   }
-`;
-export const StyledForgotPassword = styled.a`
-  font-size: ${({ theme }) => theme.fontSize.font_14};
-  color: ${({ theme }) => theme.colors.gray};
-  font-weight: ${({ theme }) => theme.fontWeight.semiBold};
+  `
+);
+export const ForgotPassword = styled.a(
+  ({ theme }) => `
+  font-size: $theme.fontSize.font_14};
+  color: ${theme.colors.gray};
+  font-weight: ${theme.fontWeight.semiBold};
   text-decoration: underline;
   margin-top: 1.6rem;
-`;
+  cursor: pointer;
+  `
+);

@@ -1,9 +1,8 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { useQuery } from 'react-query';
 import { setProducts } from "../../redux/productsReducer";
-import axios from "axios";
-import { StyledProductsGrid, StyledProductContainer } from "./Products.styles";
+import { Grid, Container } from "./Products.styles";
 import {
   Header,
   ProductCard,
@@ -13,9 +12,11 @@ import {
 } from "../../components";
 
 export const Products = () => {
-  const [modalName, setModalName] = useState("");
-  const [modalDescription, setModalDescription] = useState("");
-  const [modalImage, setModalImage] = useState("");
+  const [modalProdut, setModalProduct] = useState({
+    name: "",
+    description: "",
+    image: "",
+  });
   const [modalActive, setModalActive] = useState(false);
   const { products } = useSelector((state) => state.products);
   const { page, promo, active, searchTerm } = useSelector(
@@ -48,9 +49,13 @@ export const Products = () => {
 
     products.forEach((product) => {
       if (product.id === id) {
-        setModalName(product.name);
-        setModalDescription(product.description);
-        setModalImage(product.image);
+        const newProduct = {
+          name: product.name,
+          description: product.description,
+          image: product.image,
+        };
+
+        setModalProduct(newProduct);
       }
     });
   };
@@ -58,36 +63,30 @@ export const Products = () => {
   return (
     <>
       <Header />
-      <StyledProductContainer>
+      <Container>
         {products.length > 0 ? (
-          <StyledProductsGrid>
-            {products.map((product) => {
-              return (
-                <ProductCard
-                  key={product.id}
-                  id={product.id}
-                  name={product.name}
-                  description={product.description}
-                  image={product.image}
-                  active={product.active}
-                  promo={product.promo}
-                  rating={product.rating}
-                  handleModalOpen={handleModalOpen}
-                />
-              );
-            })}
-          </StyledProductsGrid>
+          <>
+            <Grid>
+              {products.map((product) => {
+                return (
+                  <ProductCard
+                    productData={product}
+                    key={product.id}
+                    handleModalOpen={handleModalOpen}
+                  />
+                );
+              })}
+            </Grid>
+            <Pagination />
+          </>
         ) : (
           <EmptyStore />
         )}
-        <Pagination />
-      </StyledProductContainer>
+      </Container>
       <ProductDetails
         setModalActive={setModalActive}
         modalActive={modalActive}
-        description={modalDescription}
-        image={modalImage}
-        name={modalName}
+        modalProdut={modalProdut}
       />
     </>
   );

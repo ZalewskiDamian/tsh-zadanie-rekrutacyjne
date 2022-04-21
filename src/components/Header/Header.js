@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setActive, setPromo, searchProduct } from "../../redux/filtersReducer";
-import {
-  StyledHeader,
-  StyledHeaderContainer,
-  StyledLogo,
-  StyledCheckboxWrapper,
-  StyledLoginButton,
-  StyledAvatar,
-  StyledAvatarWrapper,
-  StyledDropdown,
-  StyledDropdownButton,
-} from "./Header.styles";
-import Logo from "../../assets/images/logo.svg";
-import userAvatar from "../../assets/images/user-avatar.png";
-import { SearchInput, Checkbox } from "../index";
 import { AppRoute } from "../../routing/AppRoute.enum";
+import { setActive, setPromo, searchProduct } from "../../redux/filtersReducer";
+import { SearchInput, Checkbox } from "../index";
+import {
+  Wrapper,
+  Container,
+  Logo,
+  CheckboxWrapper,
+  LoginButton,
+  Avatar,
+  AvatarWrapper,
+  Dropdown,
+  DropdownButton,
+} from "./Header.styles";
+import logoIcon from "../../assets/images/logo.svg";
+import userAvatar from "../../assets/images/user-avatar.png";
 
 const Header = () => {
   const [focusInput, setFocusInput] = useState(false);
@@ -28,6 +28,7 @@ const Header = () => {
   const handleDropdownActive = () => {
     setDropdownActive(!dropdownActive);
   };
+
   const handleCheckboxActive = () => {
     dispatch(setActive());
   };
@@ -59,9 +60,9 @@ const Header = () => {
   }, []);
 
   return (
-    <StyledHeader>
-      <StyledHeaderContainer>
-        <StyledLogo src={Logo} alt="logo" />
+    <Wrapper>
+      <Container>
+        <Logo src={logoIcon} alt="logo" />
         <SearchInput
           type="search"
           placeholder="Search"
@@ -69,7 +70,7 @@ const Header = () => {
           onChange={handleSearchProduct}
           value={searchTerm}
         />
-        <StyledCheckboxWrapper>
+        <CheckboxWrapper>
           <Checkbox
             labelText="Active"
             checked={active}
@@ -80,21 +81,19 @@ const Header = () => {
             checked={promo}
             onChange={handleCheckboxPromo}
           />
-        </StyledCheckboxWrapper>
+        </CheckboxWrapper>
         {isUserLogin ? (
-          <StyledAvatarWrapper onClick={handleDropdownActive}>
-            <StyledAvatar src={userAvatar} alt="avatar" />
-            <StyledDropdown dropdownActive={dropdownActive}>
-              <StyledDropdownButton onClick={userLogout}>
-                Log out
-              </StyledDropdownButton>
-            </StyledDropdown>
-          </StyledAvatarWrapper>
+          <AvatarWrapper onClick={handleDropdownActive}>
+            <Avatar src={userAvatar} alt="avatar" />
+            <Dropdown dropdownActive={dropdownActive}>
+              <DropdownButton onClick={userLogout}>Log out</DropdownButton>
+            </Dropdown>
+          </AvatarWrapper>
         ) : (
-          <StyledLoginButton to={AppRoute.login}>Log in</StyledLoginButton>
+          <LoginButton to={AppRoute.login}>Log in</LoginButton>
         )}
-      </StyledHeaderContainer>
-    </StyledHeader>
+      </Container>
+    </Wrapper>
   );
 };
 

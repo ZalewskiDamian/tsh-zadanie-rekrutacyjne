@@ -8,6 +8,7 @@ export const theme = {
     violet: "#B9BDCF",
     grayLight: "#E0E2EA",
     whiteDark: "#F0F1F5",
+    white: "#ffffff",
   },
   fontWeight: {
     light: "300",

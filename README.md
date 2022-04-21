@@ -1,8 +1,11 @@
+<a href='https://zalewskidamian.github.io/tsh-zadanie-rekrutacyjne/'>Click to see website</a>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and modified by TSH team for the recruit process.
 
 ## Quick Start
 
-To start the development: 
+To start the development:
+
 ```
 mkdir new-project
 cd new-project/
@@ -15,6 +18,7 @@ cd ..
 cp .env.dist .env
 cp .env.e2e.dist ./e2e/.env
 ```
+
 where `new-project` is your desired folder.
 
 ## E2E

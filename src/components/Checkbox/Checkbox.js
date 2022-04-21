@@ -1,20 +1,24 @@
-
-import { CheckboxContainer, HiddenCheckbox, StyledCheckbox, Icon, StyledLabel } from './Checkbox.styles';
+import {
+  CheckboxContainer,
+  HiddenCheckbox,
+  CheckboxInner,
+  Icon,
+  StyledLabel,
+} from "./Checkbox.styles";
 
 const Checkbox = ({ labelText, className, checked, ...props }) => {
-    
-    return (
+  return (
     <StyledLabel>
-        <CheckboxContainer className={className}>
+      <CheckboxContainer className={className}>
         <HiddenCheckbox checked={checked} {...props} />
-        <StyledCheckbox checked={checked}>
-            <Icon viewBox="0 0 24 24">
+        <CheckboxInner checked={checked}>
+          <Icon viewBox="0 0 24 24">
             <polyline points="20 6 9 17 4 12" />
-            </Icon>
-        </StyledCheckbox>
-        </CheckboxContainer>
-        {labelText}
+          </Icon>
+        </CheckboxInner>
+      </CheckboxContainer>
+      {labelText}
     </StyledLabel>
-  )
-}
+  );
+};
 export default Checkbox;
