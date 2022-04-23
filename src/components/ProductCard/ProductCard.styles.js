@@ -63,7 +63,7 @@ export const RatingWrapper = styled.div`
   margin-bottom: 1.8rem;
 `;
 export const StarIcon = styled.img`
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
   margin-right: 1rem;
 `;
