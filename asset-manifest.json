@@ -1,20 +1,17 @@
 {
   "files": {
-    "main.css": "/tsh-zadanie-rekrutacyjne/static/css/main.b976db6b.css",
-    "main.js": "/tsh-zadanie-rekrutacyjne/static/js/main.192c3745.js",
+    "main.js": "/tsh-zadanie-rekrutacyjne/static/js/main.2dbe452e.js",
     "static/media/login-image.png": "/tsh-zadanie-rekrutacyjne/static/media/login-image.ca7ad6b3d22128a3db2a.png",
     "static/media/logo.svg": "/tsh-zadanie-rekrutacyjne/static/media/logo.7e29cb775610bf2b55c70a7bdeafa07a.svg",
-    "index.html": "/tsh-zadanie-rekrutacyjne/index.html",
     "static/media/empty-store-icon.svg": "/tsh-zadanie-rekrutacyjne/static/media/empty-store-icon.f6feeac26855333c80dc535a6e1dca32.svg",
+    "index.html": "/tsh-zadanie-rekrutacyjne/index.html",
     "static/media/star-icon-empty.svg": "/tsh-zadanie-rekrutacyjne/static/media/star-icon-empty.0628c88b5c6487b986ca60aee22cb539.svg",
     "static/media/search-icon.svg": "/tsh-zadanie-rekrutacyjne/static/media/search-icon.f6bab728555fab5c136c896b18d4b3a7.svg",
     "static/media/close-icon.svg": "/tsh-zadanie-rekrutacyjne/static/media/close-icon.b9126e5dece85e4974c6fb41419273e5.svg",
     "static/media/star-icon-fill.svg": "/tsh-zadanie-rekrutacyjne/static/media/star-icon-fill.d652afe98612d42a320c619812d72fb6.svg",
-    "main.b976db6b.css.map": "/tsh-zadanie-rekrutacyjne/static/css/main.b976db6b.css.map",
-    "main.192c3745.js.map": "/tsh-zadanie-rekrutacyjne/static/js/main.192c3745.js.map"
+    "main.2dbe452e.js.map": "/tsh-zadanie-rekrutacyjne/static/js/main.2dbe452e.js.map"
   },
   "entrypoints": [
-    "static/css/main.b976db6b.css",
-    "static/js/main.192c3745.js"
+    "static/js/main.2dbe452e.js"
   ]
 }
