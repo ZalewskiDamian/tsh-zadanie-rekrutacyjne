@@ -20,8 +20,8 @@ const Pagination = () => {
       }${active ? "&active=true" : ""}`
     );
     const data = await res.data.items;
-    const total = res.data.meta.totalItems;
-    setPageCount(Math.ceil(total / 8));
+    const totalPages = res.data.meta.totalPages;
+    setPageCount(totalPages);
     return data;
   };
 

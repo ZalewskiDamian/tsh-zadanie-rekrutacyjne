@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppRoute } from "../../routing/AppRoute.enum";
-import { setActive, setPromo, searchProduct } from "../../redux/filtersReducer";
+import {
+  setActive,
+  setPromo,
+  searchProduct,
+} from "../../redux/filtersReducer";
 import { SearchInput, Checkbox } from "../index";
+import logoIcon from "../../assets/images/logo.svg";
+import userAvatar from "../../assets/images/user-avatar.png";
 import {
   Wrapper,
   Container,
@@ -14,15 +20,15 @@ import {
   Dropdown,
   DropdownButton,
 } from "./Header.styles";
-import logoIcon from "../../assets/images/logo.svg";
-import userAvatar from "../../assets/images/user-avatar.png";
 
 const Header = () => {
   const [focusInput, setFocusInput] = useState(false);
   const [dropdownActive, setDropdownActive] = useState(false);
   const [isUserLogin, setIsUserLogin] = useState(false);
   const [userData, setUserData] = useState(null);
-  const { active, promo, searchTerm } = useSelector((state) => state.filters);
+  const { active, promo, searchTerm } = useSelector(
+    (state) => state.filters
+  );
   const dispatch = useDispatch();
 
   const handleDropdownActive = () => {
@@ -43,7 +49,9 @@ const Header = () => {
   };
 
   const userLogin = () => {
-    const localData = JSON.parse(window.localStorage.getItem("user-info"));
+    const localData = JSON.parse(
+      window.localStorage.getItem("user-info")
+    );
     setUserData(localData);
     if (localData !== null) {
       setIsUserLogin(localData.isLogged);
@@ -86,7 +94,9 @@ const Header = () => {
           <AvatarWrapper onClick={handleDropdownActive}>
             <Avatar src={userAvatar} alt="avatar" />
             <Dropdown dropdownActive={dropdownActive}>
-              <DropdownButton onClick={userLogout}>Log out</DropdownButton>
+              <DropdownButton onClick={userLogout}>
+                Log out
+              </DropdownButton>
             </Dropdown>
           </AvatarWrapper>
         ) : (

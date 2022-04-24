@@ -1,5 +1,11 @@
-import { Wrapper, Content, Icon, Title, Paragraph } from "./EmptyStore.styles";
 import emptyStoreIcon from "../../assets/images/empty-store-icon.svg";
+import {
+  Wrapper,
+  Content,
+  Icon,
+  Title,
+  Paragraph,
+} from "./EmptyStore.styles";
 
 const EmptyStore = () => {
   return (
